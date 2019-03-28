@@ -256,14 +256,14 @@
 <!--end Create Modal-->
 
 <!--Start Preview Modal-->
-<%--<div id="PreviewModal" class="modal fade">
+<div id="PreviewModal" class="modal fade">
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
     <h4 class="modal-title">Preview of Application</h4>
    </div>
    <div class="modal-body">
-     <div class="form-group">   --%>
+     <div class="form-group">   
        <section class="bg-white space-sm">
         <div class="container">
           <div class="row">
@@ -339,7 +339,7 @@
 <!--End of Preview modal-->
 
 
-<%--<!-- Edit Job Modal HTML -->
+<!-- Edit Job Modal HTML -->
     <div id="EditModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -347,7 +347,7 @@
                     <h4 class="modal-title">Edit Application</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">--%>
+                    <div class="form-group">
   <div class="form-group">
     <label for="exampleFormControlInput1">Position Title:</label>
     <asp:textbox ID="txtEditTitle" class="form-control" runat="server"></asp:textbox>
