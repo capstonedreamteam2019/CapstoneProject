@@ -49,7 +49,7 @@ public class Post
     }
 
 
-    public DateTime getpostDate()
+    public DateTime getPostDate()
     {
         return postDate;
     }

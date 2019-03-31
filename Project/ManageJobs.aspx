@@ -213,53 +213,53 @@
                 <div class="modal-body">
   <div class="form-group">
     <label for="title">Position Title:</label>
-    <input type="text" class="form-control" id="title" placeholder="ie. Sales Intern">
+    <input type="text" runat="server" class="form-control" id="title" placeholder="ie. Sales Intern">
   </div>
 
   <div class="form-group">
     <label for="department">Department:</label>
-    <input type="text" class="form-control" id="department" placeholder="ie. Marketing">
+    <input type="text" runat="server" class="form-control" id="department" placeholder="ie. Marketing">
   </div>
 
    <div class="form-group">
     <label for="location">Job Location:</label>
-    <input type="text" class="form-control" id="location" placeholder="ie. Richmond, VA">
+    <input type="text" runat="server" class="form-control" id="location" placeholder="ie. Richmond, VA">
   </div>
 
    <div class="form-group">
     <label for="salary">Salary ($):</label>
-    <input type="text" class="form-control" id="salary" placeholder="ie. 10,000">
+    <input type="text" runat="server" class="form-control" id="salary" placeholder="ie. 10,000">
   </div>
 
    <div class="form-group">
     <label for="payType">Pay Type:</label>
     <br />
     <label for="payType">Yearly</label>
-    <input type="radio" id="yearly" name="payType">
+    <input type="radio" runat="server" id="yearly" name="payType">
 
     <label for="payType">Hourly</label>
-    <input type="radio" id="hourly" name="payType">
+    <input type="radio" runat="server" id="hourly" name="payType">
   </div>
 
   <div class="form-group">
     <label for="deadline">Application Deadline:</label>
-    <input type="text" class="form-control" id="deadline" placeholder="3/31/2019">
+    <input type="text" runat="server" class="form-control" id="deadline" placeholder="3/31/2019">
   </div>
 
   <div class="form-group">
     <label for="respons">Job Responsibilities:</label>
-    <textarea class="form-control" id="respons" rows="3"></textarea>
+    <textarea class="form-control" runat="server" id="respons" rows="3"></textarea>
   </div>
 
   <div class="form-group">
     <label for="reqs">Job Requirements:</label>
-    <textarea class="form-control" id="reqs" rows="3"></textarea>
+    <textarea class="form-control" runat="server" id="reqs" rows="3"></textarea>
   </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Create Post</button>
+                    <button type="button" class="btn btn-success" runat="server" onServerClick="SubmitButton_OnClick">Create Post</button>
                 </div>
             </div>
         </div>

@@ -23,6 +23,71 @@ public partial class ManageJobs : System.Web.UI.Page
         }
     }
 
+    protected void SubmitButton_OnClick(object sender, EventArgs e)
+    {
+        //Insert
+
+        localDB.Open();
+
+        //Creates a new sql insert command
+        System.Data.SqlClient.SqlCommand insertPost = new System.Data.SqlClient.SqlCommand();
+        insertPost.Connection = localDB;
+
+        System.Data.SqlClient.SqlCommand selectPostID = new System.Data.SqlClient.SqlCommand();
+        selectPostID.Connection = localDB;
+
+        System.Data.SqlClient.SqlCommand insertJob = new System.Data.SqlClient.SqlCommand();
+        insertJob.Connection = localDB;
+
+
+        //Local Activity object
+        Post posting = new Post("Job", title.Value, DateTime.Now, respons.Value, 1, "HaleyDAmelio", DateTime.Now);
+
+        //Insert data into database
+        insertPost.CommandText = "insert into [Post] ([PostType], [Title], [PostDate], [PostDescription], [BusinessID], [LastUpdatedBy], [LastUpdated])" +
+            "values (@type, @title, @postDate, @description, @busID, @lastUpdatedBy, @lastUpdated)";
+
+        insertPost.Parameters.Add(new SqlParameter("type", posting.getType()));
+        insertPost.Parameters.Add(new SqlParameter("title", posting.getTitle()));
+        insertPost.Parameters.Add(new SqlParameter("postDate", posting.getPostDate()));
+        insertPost.Parameters.Add(new SqlParameter("description", posting.getDescription()));
+        insertPost.Parameters.Add(new SqlParameter("busID", posting.getBusID()));
+        insertPost.Parameters.Add(new SqlParameter("lastUpdatedBy", posting.getLastUpdatedBy()));
+        insertPost.Parameters.Add(new SqlParameter("lastUpdated", posting.getLastUpdated()));
+
+        insertPost.ExecuteNonQuery();
+
+        selectPostID.CommandText = "select max(postingID) from Posting";
+        string postID = selectPostID.ExecuteScalar().ToString();
+        selectPostID.ExecuteNonQuery();
+
+
+        DateTime due = DateTime.Parse(deadline.Value);
+        //Local Activity object
+        Job job = new Job(postID, title.Value, department.Value, reqs.Value, due, salary.Value, respons.Value, "1", yearly.Value, location.Value, "HaleyDAmelio", DateTime.Now);
+
+        insertJob.CommandText = "insert into [Job] ([PostingID], [JobTitle], [Department], [Requirements], [DueDate], [Salary], [Responsibilities], [BusinessID], [PayType], [Location], [LastUpdatedBy], [LastUpdated])" +
+            "values (@postingID, @title, @department, @requirements, @dueDate, @salary, @resp, @busID, @payType, @location, @lastUpdatedBy, @lastUpdated)";
+
+        insertJob.Parameters.Add(new SqlParameter("postingID", job.getpostID()));
+        insertJob.Parameters.Add(new SqlParameter("title", job.getTitle()));
+        insertJob.Parameters.Add(new SqlParameter("department", job.getDepartment()));
+        insertJob.Parameters.Add(new SqlParameter("requirements", job.getReqs()));
+        insertJob.Parameters.Add(new SqlParameter("dueDate", job.getDueDate()));
+        insertJob.Parameters.Add(new SqlParameter("salary", job.getSalary()));
+        insertJob.Parameters.Add(new SqlParameter("resp", job.getRespons()));
+        insertJob.Parameters.Add(new SqlParameter("busID", job.getBusID()));
+        insertJob.Parameters.Add(new SqlParameter("payType", job.getPayType()));
+        insertJob.Parameters.Add(new SqlParameter("location", job.getLocation()));
+        insertJob.Parameters.Add(new SqlParameter("lastUpdatedBy", job.getLastUpdatedBy()));
+        insertJob.Parameters.Add(new SqlParameter("lastUpdated", job.getLastUpdated()));
+
+        insertJob.ExecuteNonQuery();
+
+        localDB.Close();
+
+    }
+
     //update gridview
     protected void showData()
     {

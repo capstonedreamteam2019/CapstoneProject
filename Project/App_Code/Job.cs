@@ -9,21 +9,30 @@ using System.Web;
 public class Job
 {
     private string postID;
+    private string title;
     private string department;
     private string reqs;
     private DateTime dueDate;
     private string salary;
+    private string respons;
+    private string busID;
+    private string payType;
     private string location;
     private string lastUpdatedBy;
     private DateTime lastUpdated;
 
-    public Job(string postID, string department, string reqs, DateTime dueDate, string salary, string location, string lastUpdatedBy, DateTime lastUpdated)
+    public Job(string postID, string title, string department, string reqs, DateTime dueDate, string salary, 
+        string respons, string busID, string payType, string location, string lastUpdatedBy, DateTime lastUpdated)
     {
         setpostID(postID);
+        setTitle(title);
         setDepartment(department);
         setReqs(reqs);
         setDueDate(dueDate);
         setSalary(salary);
+        setRespons(respons);
+        setBusID(busID);
+        setPayType(payType);
         setLocation(location);
         setLastUpdatedBy(lastUpdatedBy);
         setLastUpdated(lastUpdated);
@@ -37,6 +46,16 @@ public class Job
     public void setpostID(string postID)
     {
         this.postID = postID;
+    }
+
+    public string getTitle()
+    {
+        return title;
+    }
+
+    public void setTitle(string title)
+    {
+        this.title = title;
     }
 
     public string getDepartment()
@@ -78,6 +97,36 @@ public class Job
     public void setSalary(string salary)
     {
         this.salary = salary;
+    }
+
+    public string getRespons()
+    {
+        return respons;
+    }
+
+    public void setRespons(string respons)
+    {
+        this.respons = respons;
+    }
+
+    public string getBusID()
+    {
+        return busID;
+    }
+
+    public void setBusID(string busID)
+    {
+        this.busID = busID;
+    }
+
+    public string getPayType()
+    {
+        return payType;
+    }
+
+    public void setPayType(string payType)
+    {
+        this.payType = payType;
     }
 
     public string getLocation()
