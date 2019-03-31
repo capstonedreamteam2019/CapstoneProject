@@ -4,10 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using System.Data.SqlClient;
 
 public partial class Login : System.Web.UI.Page
 {
+    SqlConnection localDB = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["localDB"].ConnectionString);
+    SqlDataAdapter da;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -19,12 +23,12 @@ public partial class Login : System.Web.UI.Page
         try
         {
            
-            sc.Open();
+            localDB.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
-            findPass.Connection = sc;
+            findPass.Connection = localDB;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
             findPass.CommandText = "select PasswordHash from Pass where Username = @Username";
-            findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
+            findPass.Parameters.Add(new SqlParameter("@Username", email.Value));
 
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
 
@@ -34,22 +38,25 @@ public partial class Login : System.Web.UI.Page
                 {
                     string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
 
-                    if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                    if (PasswordHash.ValidatePassword(password.Value, storedHash)) // if the entered password matches what is stored, it will show success
                     {
                         Response.Redirect("LandingPage.aspx");
-                       
+                    }
+
                     else
-                        lblStatus.Text = "Password is wrong.";
+                    {
+                        //Label.Text = "Password is wrong.";
+                    }
                 }
             }
             else // if the username doesn't exist, it will show failure
-                lblStatus.Text = "Login failed.";
+                //lblStatus.Text = "Login failed.";
 
-            sc.Close();
+            localDB.Close();
         }
         catch
         {
-            lblStatus.Text = "Database Error.";
+            //lblStatus.Text = "Database Error.";
         }
 
         

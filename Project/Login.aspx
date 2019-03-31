@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
 <!DOCTYPE html>
 
@@ -52,19 +52,24 @@
                   <h1 class="h2 mb-2">Login Here</h1>
                   <span>Let's get connected.</span>
                 </div>
-                <form class="mb-4">
+                <form class="mb-4" runat="server">
                   <div class="form-group">
                     <label for="signup-email">Email Address</label>
-                    <input class="form-control form-control-lg" type="email" name="email" id="signup-email" placeholder="Email Address or Username" />
+                    <input class="form-control form-control-lg" runat="server" type="email" name="email" id="email" placeholder="Email Address or Username" />
                   </div>
                   <div class="form-group">
                     <label for="signup-password">Password</label>
-                    <input class="form-control form-control-lg" type="password" name="password" id="signup-password" placeholder="Password" />
+                    <input class="form-control form-control-lg" runat="server" type="password" name="password" id="password" placeholder="Password" />
                     <small>Password is case sensitive.</small>
                   </div>
                   
                   <div class="text-center mt-4">
                    <a href="LandingPage.aspx" class="btn btn-lg btn-success btn btn-lg">Login</a>
+                  </div>
+
+                  <div class="form-group">
+                    <label id="label"> </label>
+                    
                   </div>
                 </form>
                 <div class="text-center">

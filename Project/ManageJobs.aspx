@@ -208,41 +208,54 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Create an Application</h4>
+                    <h4 class="modal-title">Create a Job Post</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-    <label for="exampleFormControlInput1">Department Name:</label>
-    <input type="department" class="form-control" id="exampleFormControlInput1" placeholder="ie. Human Resources">
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Position Title:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Sales Intern">
-  </div>
-     <div class="form-group">
-    <label for="exampleFormControlInput1">Job Location:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Richmond, VA">
-  </div>
-     <div class="form-group">
-    <label for="exampleFormControlInput1">Job Salary:</label>
-    <input type="Job Salary" class="form-control" id="exampleFormControlInput1">
-  </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Job Description/Qualifications:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="title">Position Title:</label>
+    <input type="text" class="form-control" id="title" placeholder="ie. Sales Intern">
   </div>
+
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Job Requirements:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="department">Department:</label>
+    <input type="text" class="form-control" id="department" placeholder="ie. Marketing">
   </div>
-       <div class="form-group">
-    <label for="exampleFormControlInput1">Application Deadline:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1">
-  </div>
+
    <div class="form-group">
-    <label for="exampleFormControlInput1">Last Updated:</label>
-    <input type="Last Updated" class="form-control" id="exampleFormControlInput1">
+    <label for="location">Job Location:</label>
+    <input type="text" class="form-control" id="location" placeholder="ie. Richmond, VA">
   </div>
+
+   <div class="form-group">
+    <label for="salary">Salary ($):</label>
+    <input type="text" class="form-control" id="salary" placeholder="ie. 10,000">
+  </div>
+
+   <div class="form-group">
+    <label for="payType">Pay Type:</label>
+    <br />
+    <label for="payType">Yearly</label>
+    <input type="radio" id="yearly" name="payType">
+
+    <label for="payType">Hourly</label>
+    <input type="radio" id="hourly" name="payType">
+  </div>
+
+  <div class="form-group">
+    <label for="deadline">Application Deadline:</label>
+    <input type="text" class="form-control" id="deadline" placeholder="3/31/2019">
+  </div>
+
+  <div class="form-group">
+    <label for="respons">Job Responsibilities:</label>
+    <textarea class="form-control" id="respons" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="reqs">Job Requirements:</label>
+    <textarea class="form-control" id="reqs" rows="3"></textarea>
+  </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
