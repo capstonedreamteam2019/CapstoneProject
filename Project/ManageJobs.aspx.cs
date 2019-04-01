@@ -57,16 +57,27 @@ public partial class ManageJobs : System.Web.UI.Page
 
         insertPost.ExecuteNonQuery();
 
-        selectPostID.CommandText = "select max(postingID) from Posting";
+        selectPostID.CommandText = "select max(postID) from Post";
         string postID = selectPostID.ExecuteScalar().ToString();
         selectPostID.ExecuteNonQuery();
 
 
         DateTime due = DateTime.Parse(deadline.Value);
-        //Local Activity object
-        Job job = new Job(postID, title.Value, department.Value, reqs.Value, due, salary.Value, respons.Value, "1", yearly.Value, location.Value, "HaleyDAmelio", DateTime.Now);
 
-        insertJob.CommandText = "insert into [Job] ([PostingID], [JobTitle], [Department], [Requirements], [DueDate], [Salary], [Responsibilities], [BusinessID], [PayType], [Location], [LastUpdatedBy], [LastUpdated])" +
+        string selected;
+        if (yearly.Checked == true)
+        {
+            selected = yearly.Value;
+        }
+
+        else
+        {
+            selected = hourly.Value;
+        }
+        //Local Activity object
+        Job job = new Job(postID, title.Value, department.Value, reqs.Value, due, salary.Value, respons.Value, "1", selected, location.Value, "HaleyDAmelio", DateTime.Now);
+
+        insertJob.CommandText = "insert into [Job] ([PostID], [JobTitle], [Department], [Requirements], [DueDate], [Salary], [Responsibilities], [BusinessID], [PayType], [Location], [LastUpdatedBy], [LastUpdated])" +
             "values (@postingID, @title, @department, @requirements, @dueDate, @salary, @resp, @busID, @payType, @location, @lastUpdatedBy, @lastUpdated)";
 
         insertJob.Parameters.Add(new SqlParameter("postingID", job.getpostID()));

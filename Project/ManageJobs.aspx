@@ -105,7 +105,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText ="Location" >
                 <ItemTemplate>
-                    <asp:Label ID="lblLocation" Text='<%#Eval("JobLocation") %>' runat="server"></asp:Label>
+                   <asp:Label ID="lblLocation" Text='<%#Eval("Location") %>' runat="server"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField> 
             <asp:TemplateField HeaderText ="Description" >
@@ -235,10 +235,10 @@
     <label for="payType">Pay Type:</label>
     <br />
     <label for="payType">Yearly</label>
-    <input type="radio" runat="server" id="yearly" name="payType">
+    <input type="radio" runat="server" id="yearly" name="payType" value="yearly">
 
     <label for="payType">Hourly</label>
-    <input type="radio" runat="server" id="hourly" name="payType">
+    <input type="radio" runat="server" id="hourly" name="payType" value="hourly">
   </div>
 
   <div class="form-group">

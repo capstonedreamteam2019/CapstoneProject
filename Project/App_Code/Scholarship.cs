@@ -8,31 +8,33 @@ using System.Web;
 /// </summary>
 public class Scholarship
 {
-    private string postingID;
+    private string postID;
     private string reqs;
-    private int reward;
+    private string essay;
+    private string reward;
     private DateTime dueDate;
     private string lastUpdatedBy;
     private DateTime lastUpdated;
 
-    public Scholarship(string postingID, string reqs, int reward, DateTime dueDate, string lastUpdatedBy, DateTime lastUpdated)
+    public Scholarship(string postID, string reqs, string essay, string reward, DateTime dueDate, string lastUpdatedBy, DateTime lastUpdated)
     {
-        setPostingID(postingID);
+        setPostID(postID);
         setReqs(reqs);
+        setEssay(essay);
         setReward(reward);
         setDueDate(dueDate);
         setLastUpdatedBy(lastUpdatedBy);
         setLastUpdated(lastUpdated);
     }
 
-    public string getPostingID()
+    public string getPostID()
     {
-        return postingID;
+        return postID;
     }
 
-    public void setPostingID(string postingID)
+    public void setPostID(string postID)
     {
-        this.postingID = postingID;
+        this.postID = postID;
     }
 
     public string getReqs()
@@ -45,12 +47,22 @@ public class Scholarship
         this.reqs = reqs;
     }
 
-    public int getReward()
+    public string getEssay()
+    {
+        return essay;
+    }
+
+    public void setEssay(string essay)
+    {
+        this.essay = essay;
+    } 
+
+    public string getReward()
     {
         return reward;
     }
 
-    public void setReward(int reward)
+    public void setReward(string reward)
     {
         this.reward = reward;
     }

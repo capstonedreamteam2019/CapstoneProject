@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
+ <form runat="server">
  <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -39,34 +40,41 @@
                     <h4 class="modal-title">Create a Scholarship</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-    <label for="exampleFormControlInput1">Scholarship Title:</label>
-    <input type="department" class="form-control" id="exampleFormControlInput1" placeholder="ie. College Scholarship">
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Amount:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. 5,000$">
-  </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Scholarship Requirements:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="title">Scholarship Title:</label>
+    <input type="text" runat="server" class="form-control" id="scholTitle" placeholder="ie. College Scholarship">
   </div>
-       <div class="form-group">
-    <label for="exampleFormControlInput1">Deadline:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1">
+
+  <div class="form-group">
+    <label for="descr">Scholarship Description:</label>
+    <input type="text" runat="server" class="form-control" id="descr" placeholder="ie. St. John's 5th Annual Academic Scholarship">
   </div>
+
    <div class="form-group">
-    <label for="exampleFormControlInput1">Last Updated:</label>
-    <input type="Last Updated" class="form-control" id="exampleFormControlInput1">
+    <label for="reward">Reward ($):</label>
+    <input type="text" runat="server" class="form-control" id="reward" placeholder="ie. 5,000">
   </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Last Updated By:</label>
-    <input type="Last Updated" class="form-control" id="exampleFormControlInput1">
+
+  <div class="form-group">
+    <label for="scholReqs">Scholarship Requirements:</label>
+    <textarea class="form-control" runat="server" id="scholReqs" rows="3"></textarea>
   </div>
+
+  <div class="form-group">
+    <label for="deadline">Deadline:</label>
+    <input type="text" runat="server" class="form-control" id="deadline">
+  </div>
+
+
+  <div class="form-group">
+    <label for="essay">Scholarship Essay Question:</label>
+    <textarea class="form-control" runat="server" id="essay" rows="3"></textarea>
+  </div>
+                
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Create Scholarship</button>
+                    <button type="button" class="btn btn-success" runat="server" onserverclick="SubmitButton_OnClick">Create Scholarship</button>
                 </div>
             </div>
         </div>
@@ -328,7 +336,7 @@
         <!--end of container-->
       </section>
       <!--end of section-->
-     
+ </form>    
     <script type="text/javascript" src="pages/assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="pages/assets/js/popper.min.js"></script>
     <script type="text/javascript" src="pages/assets/js/jquery.smartWizard.min.js"></script>
