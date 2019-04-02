@@ -25,7 +25,7 @@
                           <small class="text-muted">1 hour ago</small>
                         </div>
                       </div>
-                      <span class="text-muted text-small col-11 p-0 text-truncate d-block">Let's keep those protoypes 100</span>
+                      <span id="sideMessage" runat="server" class="text-muted text-small col-11 p-0 text-truncate d-block">Let's keep those protoypes 100</span>
                     </div>
                   </div>
                 </a>
@@ -102,7 +102,7 @@
                     <h6 class="mb-0 d-block">Daniel Cameron
                       <span class="badge badge-indicator badge-success"></span>
                     </h6>
-                    <span class="text-muted text-small">last seen today at 2:15pm</span>
+                    <span class="text-muted text-small">last seen today at 2:15 PM</span>
                   </div>
                 </div>
 
@@ -132,7 +132,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:08pm</small>
+                          <small class="opacity-60">1:08 PM</small>
                         </div>
                       </div>
                     </div>
@@ -149,7 +149,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:07pm</small>
+                          <small class="opacity-60">1:07 PM</small>
                         </div>
                       </div>
                     </div>
@@ -166,7 +166,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:06pm</small>
+                          <small class="opacity-60">1:06 PM</small>
                         </div>
                       </div>
                     </div>
@@ -183,7 +183,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:05pm</small>
+                          <small class="opacity-60">1:05 PM</small>
                         </div>
                       </div>
                     </div>
@@ -200,7 +200,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:05pm</small>
+                          <small class="opacity-60">1:05 PM</small>
                         </div>
                       </div>
                     </div>
@@ -217,7 +217,7 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:05pm</small>
+                          <small class="opacity-60">1:05 PM</small>
                         </div>
                       </div>
                     </div>
@@ -234,24 +234,40 @@
                         </p>
                         <div>
 
-                          <small class="opacity-60">1:04pm</small>
+                          <small class="opacity-60">1:04 PM</small>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="row justify-content-end text-right">
+                <div id="sendHide" class="row justify-content-end text-right" runat="server">
                   <div class="col-auto">
                     <div class="card bg-primary text-white">
                       <div class="card-body p-2">
-
-                        <p class="mb-0">
-                          Hey, what's up? Did you manage to get those prototypes together?
-                        </p>
+                        
+                        <!--new message appears in box-->
+                        <label id="sendPhrase" class="mb-0" runat="server"></label>
                         <div>
 
-                          <small class="opacity-60">1:04pm</small>
+                          <small id="time" class="opacity-60" runat="server"></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <div id="responseHide" class="row justify-content-start" runat="server">
+                  <div class="col-auto">
+                    <div class="card bg-secondary">
+                      <div class="card-body p-2">
+
+                        <label id="sendResponse" class="mb-0" runat="server">
+                          Yes, I am still interested. Can you please send over more information.
+                        </label>
+                        <div>
+
+                          <small id="time2" class="opacity-60" runat="server"></small>
                         </div>
                       </div>
                     </div>
@@ -266,14 +282,15 @@
                 </div>
               </div>
               <div class="card-footer bg-secondary">
-                <form class="d-flex align-items-center">
+                <form class="d-flex align-items-center" runat="server">
                   <div class="input-group input-group-lg">
                     <div class="input-group-prepend">
                       <button class="btn btn-secondary" type="button">
                         <i class="icon-attachment"></i>
                       </button>
                     </div>
-                    <input class="form-control" type="text" placeholder="Type a message" name="message" />
+                    <input class="form-control" type="text" id="messageBox" name="message" placeholder="Type a message" runat="server" />
+                    <button type="button" class="btn btn-success" runat="server" onServerClick="SendButton_OnClick">Send</button>
                   </div>
                   <button class="btn btn-link pr-0">
                     <span class="h3">&#x1F600;</span>
