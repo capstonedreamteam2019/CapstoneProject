@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using System.Threading;
 
 public partial class Messaging : System.Web.UI.Page
 {
@@ -31,10 +32,12 @@ public partial class Messaging : System.Web.UI.Page
 
         //show response message
         time2.InnerText = converted;
-        responseHide.Visible = true;
 
         //change side bar to match message
-        sideMessage.InnerText = sendResponse.InnerText;
+        string sideResponse = sendResponse.InnerText;
+        string sideSubstring = sideResponse.Substring(0, 15);
+        sideMessage.InnerText = sideSubstring;
+    
 
         //send email about new message
         var from = new MailAddress("haley102497@gmail.com", "From");
@@ -42,6 +45,8 @@ public partial class Messaging : System.Web.UI.Page
         string fromPassword = "Chris6338!!";
         string subject = "New Message from:---";
         string body = sendResponse.InnerText;
+
+
 
         var smtp = new SmtpClient
         {
@@ -62,7 +67,26 @@ public partial class Messaging : System.Web.UI.Page
             smtp.Send(emailAlert);
         }
 
-        
+       
+
+        System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(show));
+
+        thread.IsBackground = true;
+
+
+
+        thread.Start();
+
+    }
+
+    void show()
+
+    {
+
+        System.Threading.Thread.Sleep(3000);
+
+        responseHide.Visible = true;
+
     }
 }
         
