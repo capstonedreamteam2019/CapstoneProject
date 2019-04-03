@@ -13,7 +13,7 @@
               </form>
               <div class="list-group list-group-chat list-group-flush">
 
-                <a href="#" class="list-group-item list-group-item-action active">
+                <a href="#r" id="highlight1" runat="server" onserverclick="ChangeBack_OnClick" class="list-group-item list-group-item-action active">
                   <div class="media">
                     <img alt="Image" src="pages/assets/img/avatar-male-4.jpg" class="avatar avatar-sm m-0" />
                     <div class="media-body d-none d-lg-block ml-2">
@@ -22,7 +22,7 @@
                           <span class="badge badge-indicator badge-success"></span>
                         </h6>
                         <div>
-                          <small class="text-muted">1 hour ago</small>
+                          <small id="DanielSideTime" class="text-muted" runat="server">1 hour ago</small>
                         </div>
                       </div>
                       <span id="sideMessage" runat="server" class="text-muted text-small col-11 p-0 text-truncate d-block">Let's keep those protoypes 100</span>
@@ -30,7 +30,7 @@
                   </div>
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="#" id="highlight" class="list-group-item list-group-item-action" runat="server" onserverclick="ChangeMessage_OnClick">
                   <div class="media">
                     <img alt="Image" src="pages/assets/img/avatar-female-3.jpg" class="avatar avatar-sm m-0" />
                     <div class="media-body d-none d-lg-block ml-2">
@@ -97,9 +97,9 @@
               <div class="card-header d-flex justify-content-between align-items-center">
 
                 <div class="media align-items-center">
-                  <img alt="Image" src="pages/assets/img/avatar-male-4.jpg" class="avatar avatar-sm" />
+                  <img id="photoChange" runat="server" alt="Image" src="pages/assets/img/avatar-male-4.jpg" class="avatar avatar-sm" />
                   <div class="media-body">
-                    <h6 class="mb-0 d-block">Daniel Cameron
+                    <h6 id="userName" runat="server" class="mb-0 d-block">Daniel Cameron
                       <span class="badge badge-indicator badge-success"></span>
                     </h6>
                     <span class="text-muted text-small">last seen today at 2:15 PM</span>
@@ -111,23 +111,56 @@
                     <i class="icon-chevron-down"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm" aria-labelledby="Button">
-                    <a class="dropdown-item" href="#">Contact info</a>
+                    <a class="dropdown-item" href="#contactModal" id="contactInfo" data-toggle="modal" runat="server">Contact info</a>
                     <a class="dropdown-item" href="#">Mute</a>
-                    <a class="dropdown-item" href="#">Clear messages</a>
+                    <a class="dropdown-item" href="#" id="clearMessages" runat="server" onserverclick="ClearMessages_OnClick">Clear messages</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Delete chat</a>
+                    <a class="dropdown-item" href="#" id="deleteMessages" runat="server" onserverclick="DeleteMessages_OnClick">Delete chat</a>
                   </div>
                 </div>
               </div>
               <!--end card header-->
-              <div class="card-body overflow-auto">
+    
+    <!-- Modal HTML -->
+    <div id="contactModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Contact Information</h4>
+                </div>
+                <div class="modal-body">
+  <div class="form-group">
+    <label for="title">Daniel Cameron</label>
+  </div>
+
+  <div class="form-group">
+    <label for="descr">Email: danielCameron@gmail.com</label>
+  </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+     
+<!--end Create Modal-->
+
+
+              
+                <label id="noMessagesAlert" runat="server">All messages cleared</label>
+              
+               <!-- conversation thread-->
+              <div id="messageClear" runat="server" class="card-body overflow-auto">
 
                 <div class="row justify-content-start">
                   <div class="col-auto">
                     <div class="card bg-secondary">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="firstMess" runat="server" class="mb-0">
                           Agreed, their after-sales support is second-to-none.
                         </p>
                         <div>
@@ -144,7 +177,7 @@
                     <div class="card bg-primary text-white">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="secondMess" runat="server" class="mb-0">
                           Same! The guys at Medium Rare are also top blokes
                         </p>
                         <div>
@@ -161,7 +194,7 @@
                     <div class="card bg-secondary">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="thirdMess" runat="server" class="mb-0">
                           Yeah talk about speedy, it saves me so much time and effort &#x1F44C;
                         </p>
                         <div>
@@ -178,7 +211,7 @@
                     <div class="card bg-primary text-white">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="fourthMess" runat="server" class="mb-0">
                           I know, right? We've been using Wingman for all our internal projects for a while now
                         </p>
                         <div>
@@ -195,7 +228,7 @@
                     <div class="card bg-secondary">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="fifthMess" runat="server" class="mb-0">
                           Of course, I'm not a fool!
                         </p>
                         <div>
@@ -212,7 +245,7 @@
                     <div class="card bg-primary text-white">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="sixthMess" runat="server" class="mb-0">
                           Awesome, did you make it with Wingman?
                         </p>
                         <div>
@@ -229,7 +262,7 @@
                     <div class="card bg-secondary">
                       <div class="card-body p-2">
 
-                        <p class="mb-0">
+                        <p id="seventhMess" runat="server" class="mb-0">
                           Yes, all synced to the drive for you guys &#x1F44D;
                         </p>
                         <div>
@@ -263,7 +296,7 @@
                       <div class="card-body p-2">
 
                         <label id="sendResponse" class="mb-0" runat="server">
-                          Yes, I am still interested. Can you please send over more information.
+                          Yes, I am still interested.
                         </label>
                         <div>
 

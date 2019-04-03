@@ -331,6 +331,5 @@ public partial class ManageJobs : System.Web.UI.Page
         localDB.Close();
         showData();
     }
-
    
 }
