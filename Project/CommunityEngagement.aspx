@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
-    </div>
       <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -19,7 +18,7 @@
             </div>
         </div>
     </div>
-   
+    </div>
     <section class="space-sm">
         <div class="container">
           <div class="row justify-content-between">
@@ -34,14 +33,14 @@
                   </li>
                 </ul>
               </nav>
-              
+              <ul>
         
             </div>
             <!--end of col-->
-          
+          </div>
             </div>
             <!--end of col-->
-            </div>
+            
             <div class="col order-md-1">
               <h2 class="mb-0">Engage with your Community</h2>
               <span>Create and view events in your local community.</span>
@@ -76,10 +75,10 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li><h2 id="currentMonthName" runat="server" class="text-center">April 2019</h2></li>
+            <li><h2 class="text-center" id="monthName" runat="server">April 2019</h2></li>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          	&nbsp;&nbsp;&nbsp;
-           <li> <a href="#myModal2" class="btn btn-success" data-toggle="modal"><i class="icon-plus">&nbsp;</i>Create an Event</a> </li>
+           <li> <a href="#myModal2" class="btn btn-success" data-toggle="modal"><i class="icon-plus">&nbsp;</i>Create an Event</a></li>
    		    &nbsp;&nbsp;&nbsp;&nbsp;
                   <li class="page-item disabled">
                     <a class="page-link" href="#" aria-label="Previous">
@@ -111,7 +110,7 @@
       <h5 class="col-sm p-1 text-center">Friday</h5>
       <h5 class="col-sm p-1 text-center">Saturday</h5>
     </div>
-
+  </header>
   <div class="row border border-right-0 border-bottom-0">
     <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate d-none d-sm-inline-block bg-light text-muted">
       <h5 class="row align-items-center">
@@ -192,7 +191,7 @@
         <small class="col d-sm-none text-center text-muted">Tuesday</small>
         <span class="col-1"></span>
       </h5>
-      <a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-warning text-white" id="event1Char" runat="server" data-toggle="modal">Charlottesville Career Day</a>
+      <a class="event d-block p-1 pl-2 pr-2 mb-1 rounded text-truncate small bg-warning text-white" title="Charlottesville Career Day">Charlottesville Career Day</a>
     </div>
     <div class="day col-sm p-2 border border-left-0 border-top-0 text-truncate ">
       <h5 class="row align-items-center">
@@ -402,9 +401,16 @@
   </div>
 </div>    
              
+            </div>
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+         <!--end of row-->
+    
+        </div>
         <!--end of container-->
-      <!-- Modal HTML -->
-    <div id="myModal2" class="modal fade">
+       <!-- Modal HTML -->
+      <div id="myModal2" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -412,35 +418,27 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-    <label for="exampleFormControlInput1">Event Name:</label>
-    <input type="department" class="form-control" id="exampleFormControlInput1" placeholder="ie. Cub Run Elementary Field Trip">
+    <label for="exampleFormControlInput1">Company Name:</label>
+    <input type="department" class="form-control" id="exampleFormControlInput1" placeholder="ie. Human Resources">
   </div>
    <div class="form-group">
-    <label for="exampleFormControlInput1">Department:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Marketing">
+    <label for="exampleFormControlInput1">Event Title:</label>
+    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Sales Intern">
+  </div>
+     <div class="form-group">
+    <label for="exampleFormControlInput1">Date of Event:</label>
+    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Richmond, VA">
   </div>
      <div class="form-group">
     <label for="exampleFormControlInput1">Event Location:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1" placeholder="ie. Cub Run Elementary School">
-  </div>
-     <div class="form-group">
-    <label for="exampleFormControlInput1">Event Hours and Dates:</label>
     <input type="Job Salary" class="form-control" id="exampleFormControlInput1">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Even Description:</label>
+    <label for="exampleFormControlTextarea1">Event Description:</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Job Requirements:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-       <div class="form-group">
-    <label for="exampleFormControlInput1">Event Deadline:</label>
-    <input type="Position Title" class="form-control" id="exampleFormControlInput1">
   </div>
    <div class="form-group">
-    <label for="exampleFormControlInput1">Last Updated:</label>
+    <label for="exampleFormControlInput1">Last Updated On:</label>
     <input type="Last Updated" class="form-control" id="exampleFormControlInput1">
   </div>
                 </div>
@@ -451,10 +449,10 @@
             </div>
         </div>
     </div>
-      
-      </section>
+			</section>
+			
       <!--end of section-->
-
+   
 
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
@@ -467,5 +465,4 @@
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="assets/js/theme.js"></script>
 
-</asp:Content>
-
+    </asp:Content>
