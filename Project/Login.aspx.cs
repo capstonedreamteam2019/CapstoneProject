@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 public partial class Login : System.Web.UI.Page
 {
@@ -20,23 +21,23 @@ public partial class Login : System.Web.UI.Page
     protected void LoginButton_Click(object sender, EventArgs e)
     {
         // connect to database to retrieve stored password string
-        try
-        {
+        //try
+        //{
            
             localDB.Open();
             System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
             findPass.Connection = localDB;
             // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-            findPass.CommandText = "select PasswordHash from Pass where Username = @Username";
+            findPass.CommandText = "select UserPassword from Users where Email = @Username";
             findPass.Parameters.Add(new SqlParameter("@Username", email.Value));
 
             SqlDataReader reader = findPass.ExecuteReader(); // create a reader
 
             if (reader.HasRows) // if the username exists, it will continue
             {
-                while (reader.Read()) // this will read the single record that matches the entered username
+               while (reader.Read()) // this will read the single record that matches the entered username
                 {
-                    string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
+                    string storedHash = reader["UserPassword"].ToString(); // store the database password into this variable
 
                     if (PasswordHash.ValidatePassword(password.Value, storedHash)) // if the entered password matches what is stored, it will show success
                     {
@@ -50,14 +51,14 @@ public partial class Login : System.Web.UI.Page
                 }
             }
             else // if the username doesn't exist, it will show failure
-                //lblStatus.Text = "Login failed.";
+                password.Value = "Login failed.";
 
             localDB.Close();
-        }
-        catch
-        {
+        //}
+        //catch
+       // {
             //lblStatus.Text = "Database Error.";
-        }
+        //}
 
         
     }

@@ -37,6 +37,7 @@ public partial class Messaging : System.Web.UI.Page
 
         //change side bar to match message
         sideMessage.InnerText = sendResponse.InnerText;
+        DanielSideTime.InnerText = converted;
        
         //brilliature password: brilliantfuture!
 

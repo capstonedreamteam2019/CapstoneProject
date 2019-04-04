@@ -64,7 +64,7 @@
                   </div>
                   
                   <div class="text-center mt-4">
-                   <a href="LandingPage.aspx" class="btn btn-lg btn-success btn btn-lg">Login</a>
+                   <button type="button" onserverclick="LoginButton_Click" id="passwordCheck" runat="server" class="btn btn-lg btn-success btn btn-lg">Login</button>
                   </div>
 
                   <div class="form-group">
